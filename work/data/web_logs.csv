@@ -1,0 +1,5 @@
+timestamp,user_id,page,action,device,country
+2026-04-01 08:00:00,U001,home,view,mobile,Vietnam
+2026-04-01 08:01:10,U002,product,click,desktop,Vietnam
+2026-04-01 08:02:15,U001,cart,view,mobile,Vietnam
+2026-04-01 08:03:00,U003,home,view,tablet,Thailand

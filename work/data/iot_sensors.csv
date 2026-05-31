@@ -1,0 +1,5 @@
+sensor_id,timestamp,temperature,humidity,vibration,status
+S001,2026-04-01 08:00:00,35.5,70,12.0,normal
+S002,2026-04-01 08:01:00,82.1,65,55.0,warning
+S001,2026-04-01 08:02:00,36.0,69,11.5,normal
+S003,2026-04-01 08:03:00,40.0,72,10.2,normal

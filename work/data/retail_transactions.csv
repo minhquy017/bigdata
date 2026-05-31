@@ -1,0 +1,5 @@
+transaction_id,store_id,product_id,category,quantity,price,transaction_date
+1,S01,P100,Drink,2,15.5,2026-04-01
+2,S01,P101,Snack,3,12.0,2026-04-01
+3,S02,P100,Drink,1,15.5,2026-04-01
+4,S03,P103,Cleaning,5,8.0,2026-04-01
