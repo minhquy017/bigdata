@@ -43,7 +43,7 @@ services:
     volumes:
       - miniodata:/data
 
-  # 4. Quản gia điều phối Apache Airflow (Bản nhẹ gọn cho đồ án)
+  # 4. Apache Airflow
   airflow:
     image: apache/airflow:2.9.1
     container_name: airflow_scheduler
@@ -54,7 +54,6 @@ services:
       - ./dags:/opt/airflow/dags
     environment:
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
-      # Lệnh thần thánh: Tự động cài thư viện crawl khi Airflow khởi động
       - _PIP_ADDITIONAL_REQUIREMENTS=ccxt pandas boto3
     depends_on:
       - minio
