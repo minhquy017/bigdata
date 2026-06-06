@@ -11,7 +11,7 @@ services:
     volumes:
       - ./work:/home/jovyan/work
     environment:
-      - PYSPARK_SUBMIT_ARGS=--packages org.postgresql:postgresql:42.6.0,org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262 pyspark-shell
+      - PYSPARK_SUBMIT_ARGS=--packages org.postgresql:postgresql:42.6.0,org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262 --conf spark.hadoop.fs.s3a.connection.timeout=60000 --conf spark.hadoop.fs.s3a.connection.establish.timeout=60000 pyspark-shell
     depends_on:
       - postgres
       - minio
@@ -57,6 +57,7 @@ services:
       - _PIP_ADDITIONAL_REQUIREMENTS=ccxt pandas boto3
     depends_on:
       - minio
+
 volumes:
   pgdata:
   miniodata:
