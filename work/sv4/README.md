@@ -1,4 +1,4 @@
-# SV4 — Khánh (Machine Learning / SVD / t-SNE)
+# SV4 — Nguyễn Văn Minh Khánh - 22E1020015 (Machine Learning / SVD / t-SNE)
 
 ## Nhiệm vụ
 
@@ -15,7 +15,17 @@
 ```
 sv4/
 ├── README.md
-└── DA2_ML_BuySell_SVD_tSNE.ipynb   # Notebook chính SV4
+├── DA2-MODEL-01/
+│   └── DA2_MODEL_01_DataPrep.ipynb        # Load parquet, split, StandardScaler
+├── DA2-MODEL-02/
+│   └── DA2_MODEL_02_RandomForest.ipynb    # Random Forest + Confusion Matrix
+├── DA2-MODEL-03/
+│   └── DA2_MODEL_03_GradientBoosting.ipynb # Gradient Boosting + so sánh
+├── DA2-MODEL-04/
+│   └── DA2_MODEL_04_SVD.ipynb             # TruncatedSVD + explained variance
+├── DA2-EDA-01/
+│   └── DA2_EDA_01_tSNE.ipynb              # t-SNE visualization
+└── shared/                                # Dữ liệu dùng chung giữa các notebook
 ```
 
 ## Issues
@@ -30,11 +40,15 @@ sv4/
 
 ## Cách chạy notebook
 
-1. Mở Jupyter tại http://localhost:8888
-2. Vào `sv4/DA2_ML_BuySell_SVD_tSNE.ipynb`
-3. Run All Cells (Kernel → Restart & Run All)
+Chạy theo thứ tự trên Jupyter (http://localhost:8888):
 
-> **Lưu ý:** Cell t-SNE (~30 giây) chạy sau khi SVD hoàn thành.
+1. `DA2-MODEL-01/DA2_MODEL_01_DataPrep.ipynb` — bắt buộc chạy đầu tiên
+2. `DA2-MODEL-02/DA2_MODEL_02_RandomForest.ipynb`
+3. `DA2-MODEL-03/DA2_MODEL_03_GradientBoosting.ipynb`
+4. `DA2-MODEL-04/DA2_MODEL_04_SVD.ipynb`
+5. `DA2-EDA-01/DA2_EDA_01_tSNE.ipynb` — t-SNE (~30 giây)
+
+> **Lưu ý:** MODEL-01 tạo thư mục `shared/` chứa dữ liệu dùng chung. Các notebook sau phụ thuộc vào bước này.
 
 ## Input / Output
 

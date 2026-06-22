@@ -2,13 +2,13 @@
 
 ## Thông tin nhóm
 
-| SV | Thành viên | Vai trò |
-|----|------------|---------|
-| SV1 | Dân | Team Leader / Requirement / Báo cáo |
-| SV2 | Quý | Data Engineering / Docker / MinIO |
-| SV3 | Hiếu | ETL / PySpark / Feature Engineering |
-| SV4 | Khánh | Machine Learning / SVD / t-SNE |
-| SV5 | Chương | Reinforcement Learning / DQN Bot |
+| SV | MSSV | Thành viên | Vai trò |
+|----|------|------------|---------|
+| SV1 | 22E1020014 | Trịnh Quốc Dân | Team Leader / Requirement / Báo cáo |
+| SV2 | 22E1020018 | Lê Hoàng Minh Quý | Data Engineering / Docker / MinIO |
+| SV3 | 22E1010006 | Hồ Tăng Nhật Hiếu | ETL / PySpark / Feature Engineering |
+| SV4 | 22E1020015 | Nguyễn Văn Minh Khánh | Machine Learning / SVD / t-SNE |
+| SV5 | 22E1020002 | Văn Khiêm Chương | Reinforcement Learning / DQN Bot |
 
 ## Kiến trúc hệ thống
 

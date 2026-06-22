@@ -1,4 +1,4 @@
-# SV2 — Quý (Data Engineering / Docker / MinIO)
+# SV2 — Lê Hoàng Minh Quý - 22E1020018 (Data Engineering / Docker / MinIO)
 
 ## Nhiệm vụ
 

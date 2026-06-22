@@ -1,4 +1,4 @@
-# SV1 — Dân (Nhóm trưởng / Requirement / Báo cáo)
+# SV1 — Trịnh Quốc Dân - 22E1020014 (Nhóm trưởng / Requirement / Báo cáo)
 
 ## Nhiệm vụ
 
