@@ -1,0 +1,316 @@
+requirement.md
+# REQUIREMENT DOCUMENT
+
+## ĐỒ ÁN 2: PIPELINE DỮ LIỆU GIAO DỊCH TIỀN ĐIỆN TỬ (CRYPTO) VÀ BOT RL
+
+---
+
+# THÔNG TIN ĐỒ ÁN
+
+**Tên đề tài:**
+**Đồ án 2: Pipeline Dữ liệu Giao dịch Tiền điện tử (Crypto) và Bot RL**
+
+**Thời gian thực hiện:** 01 tháng
+
+**Mục tiêu thực hiện:**
+Xây dựng một hệ thống xử lý dữ liệu giao dịch tiền điện tử kết hợp Machine Learning và Reinforcement Learning nhằm hỗ trợ phân tích tín hiệu đầu tư, dự đoán Buy/Sell và tối ưu hóa phân bổ danh mục đầu tư Crypto.
+
+---
+
+# THÔNG TIN NHÓM
+
+| Thành viên            | Vai trò                               | Nhiệm vụ chính                               |
+| ----------------------| ------------------------------------- | -------------------------------------------- |
+| Trịnh Quốc Dân        | SV1 – Nhóm trưởng                     | Requirement, quản lý tiến độ, báo cáo, slide |
+| Lê Hoàng Minh Quý     | SV2 – Data Engineering                | Docker, MinIO, Dataset Crypto                |
+| Hồ Tăng Nhật Hiếu     | SV3 – ETL Engineer                    | PySpark, Feature Engineering, Airflow        |
+| Nguyễn Văn Minh Khánh | SV4 – Machine Learning Engineer       | Buy/Sell Signal, SVD, t-SNE                  |
+| Văn Khiêm Chương      | SV5 – Reinforcement Learning Engineer | DQN Bot, Backtest, Demo                      |
+
+---
+
+# 1. GIỚI THIỆU ĐỀ TÀI
+
+Trong những năm gần đây, thị trường tiền điện tử (Cryptocurrency) phát triển mạnh mẽ với khối lượng giao dịch lớn và dữ liệu thay đổi liên tục theo thời gian thực. Việc phân tích dữ liệu giao dịch nhằm đưa ra quyết định đầu tư hiệu quả trở thành một bài toán quan trọng trong lĩnh vực khoa học dữ liệu, tài chính và trí tuệ nhân tạo.
+
+Tuy nhiên, dữ liệu giao dịch Crypto có đặc điểm là dữ liệu chuỗi thời gian (time series), khối lượng lớn, xuất hiện missing values và biến động mạnh. Điều này gây khó khăn trong quá trình lưu trữ, xử lý, khai thác và xây dựng mô hình học máy.
+
+Do đó, nhóm thực hiện đề tài **“Pipeline Dữ liệu Giao dịch Tiền điện tử (Crypto) và Bot RL”** nhằm xây dựng một hệ thống hoàn chỉnh từ thu thập dữ liệu, xử lý dữ liệu lớn bằng PySpark, trích xuất đặc trưng kỹ thuật, huấn luyện mô hình Machine Learning cho tín hiệu Buy/Sell và xây dựng bot học tăng cường (Reinforcement Learning) hỗ trợ phân bổ danh mục đầu tư Crypto.
+
+---
+
+# 2. BÀI TOÁN ĐẶT RA (PROBLEM STATEMENT)
+
+Thị trường Crypto có khối lượng dữ liệu giao dịch lớn với tốc độ cập nhật liên tục theo từng phút hoặc từng giây. Nhà đầu tư thường gặp khó khăn trong việc:
+
+* Thu thập và quản lý dữ liệu giao dịch khối lượng lớn.
+* Xử lý dữ liệu bị thiếu hoặc không đồng nhất.
+* Xác định tín hiệu mua/bán hiệu quả.
+* Giảm chiều dữ liệu kỹ thuật để trực quan hóa xu hướng thị trường.
+* Xây dựng hệ thống hỗ trợ quyết định đầu tư tự động.
+
+Do đó, cần xây dựng một hệ thống pipeline dữ liệu kết hợp Machine Learning và Reinforcement Learning để hỗ trợ xử lý dữ liệu, dự đoán tín hiệu giao dịch và tối ưu hóa chiến lược đầu tư.
+
+---
+
+# 3. MỤC TIÊU ĐỒ ÁN (OBJECTIVES)
+
+Đồ án hướng đến việc xây dựng một hệ thống phân tích dữ liệu Crypto hoàn chỉnh gồm các thành phần chính:
+
+### 3.1. Data Engineering Pipeline
+
+* Thu thập dữ liệu Bitcoin theo phút và dữ liệu nhiều đồng Crypto khác.
+* Lưu trữ dữ liệu trên MinIO.
+* Xử lý dữ liệu lớn bằng PySpark.
+* Chuẩn hóa dữ liệu phục vụ Machine Learning.
+
+### 3.2. Feature Engineering
+
+* Xử lý missing values và gap dữ liệu.
+* Xây dựng các technical indicators:
+
+  * MA10
+  * MA60
+  * ROC
+  * Momentum
+  * RSI
+  * Stochastic Oscillator
+
+### 3.3. Machine Learning
+
+* Xây dựng mô hình phân loại tín hiệu Buy/Sell.
+* Huấn luyện:
+
+  * Random Forest Classifier
+  * Gradient Boosting Classifier
+* Đánh giá bằng:
+
+  * Accuracy
+  * Precision
+  * Recall
+  * F1-score
+  * Confusion Matrix
+
+### 3.4. Dimensionality Reduction
+
+* Chuẩn hóa dữ liệu bằng StandardScaler.
+* Áp dụng TruncatedSVD giảm chiều dữ liệu.
+* Trực quan hóa bằng t-SNE.
+
+### 3.5. Reinforcement Learning
+
+* Xây dựng môi trường giao dịch Crypto.
+* Thiết kế DQN Agent.
+* Tối ưu phân bổ danh mục đầu tư.
+* So sánh với chiến lược Buy & Hold.
+
+---
+
+# 4. PHẠM VI ĐỒ ÁN (PROJECT SCOPE)
+
+## 4.1. Phạm vi thực hiện
+
+Nhóm tập trung xây dựng:
+
+### Data Engineering
+
+* Docker Environment
+* MinIO Object Storage
+* Dataset Crypto
+* PySpark Processing Pipeline
+
+### Machine Learning
+
+* Buy/Sell Classification
+* Feature Engineering
+* Technical Indicators
+
+### Data Visualization
+
+* TruncatedSVD
+* t-SNE Visualization
+
+### Reinforcement Learning
+
+* DQN-based Trading Bot
+* Portfolio Allocation
+* Backtesting cơ bản
+
+---
+
+## 4.2. Ngoài phạm vi đồ án
+
+Các nội dung sau **không nằm trong phạm vi thực hiện**:
+
+* Triển khai hệ thống production thực tế.
+* Real-time trading với sàn giao dịch.
+* Tích hợp API giao dịch thật.
+* Hệ thống dự đoán lợi nhuận tuyệt đối.
+* Tối ưu hiệu suất cho hệ thống quy mô doanh nghiệp.
+
+---
+
+# 5. KIẾN TRÚC HỆ THỐNG (SYSTEM ARCHITECTURE)
+
+Luồng xử lý dữ liệu của hệ thống gồm các bước:
+
+```text
+Crypto Dataset
+      ↓
+    MinIO
+      ↓
+PySpark ETL Pipeline
+      ↓
+Feature Engineering
+      ↓
+Buy/Sell Classification
+      ↓
+SVD + t-SNE
+      ↓
+DQN Trading Bot
+      ↓
+Portfolio Evaluation
+```
+
+### Mô tả kiến trúc
+
+**Bước 1 – Thu thập dữ liệu**
+
+* Thu thập dữ liệu Bitcoin theo phút.
+* Thu thập dữ liệu nhiều đồng Crypto.
+
+**Bước 2 – Lưu trữ dữ liệu**
+
+* Upload dữ liệu vào MinIO.
+
+**Bước 3 – ETL Pipeline**
+
+* Làm sạch dữ liệu.
+* Chuẩn hóa timestamp.
+* Xử lý missing values.
+
+**Bước 4 – Feature Engineering**
+
+* Tính toán technical indicators.
+
+**Bước 5 – Machine Learning**
+
+* Phân loại Buy/Sell.
+
+**Bước 6 – Dimensionality Reduction**
+
+* Giảm chiều bằng SVD.
+* Trực quan hóa bằng t-SNE.
+
+**Bước 7 – Reinforcement Learning**
+
+* Thiết kế Environment.
+* Huấn luyện DQN Agent.
+
+---
+
+# 6. CÔNG NGHỆ SỬ DỤNG (TECH STACK)
+
+| Thành phần             | Công nghệ           |
+| ---------------------- | ------------------- |
+| Containerization       | Docker Desktop      |
+| Object Storage         | MinIO               |
+| Big Data Processing    | PySpark             |
+| Notebook               | Jupyter Notebook    |
+| Workflow               | Airflow             |
+| Data Format            | Parquet / Iceberg   |
+| Machine Learning       | Scikit-Learn        |
+| Reinforcement Learning | TensorFlow / Keras  |
+| Visualization          | Matplotlib, Seaborn |
+| Version Control        | GitHub              |
+
+---
+
+# 7. YÊU CẦU CHỨC NĂNG (FUNCTIONAL REQUIREMENTS)
+
+### FR1 – Data Collection
+
+Hệ thống phải thu thập dữ liệu giao dịch Crypto.
+
+### FR2 – Data Storage
+
+Hệ thống phải lưu dữ liệu trên MinIO.
+
+### FR3 – ETL Processing
+
+Hệ thống phải làm sạch và chuẩn hóa dữ liệu.
+
+### FR4 – Feature Engineering
+
+Hệ thống phải tính technical indicators.
+
+### FR5 – Buy/Sell Classification
+
+Hệ thống phải dự đoán tín hiệu Buy/Sell.
+
+### FR6 – Dimensionality Reduction
+
+Hệ thống phải hỗ trợ SVD và t-SNE.
+
+### FR7 – Reinforcement Learning
+
+Hệ thống phải hỗ trợ mô hình DQN.
+
+---
+
+# 8. YÊU CẦU PHI CHỨC NĂNG (NON-FUNCTIONAL REQUIREMENTS)
+
+### Hiệu năng
+
+* Có khả năng xử lý dữ liệu Crypto kích thước lớn.
+
+### Độ tin cậy
+
+* Pipeline xử lý dữ liệu phải chạy ổn định.
+
+### Khả năng mở rộng
+
+* Có thể mở rộng thêm nhiều đồng coin khác.
+
+### Khả năng tái sử dụng
+
+* Có thể tái sử dụng notebook và pipeline.
+
+---
+
+# 9. RỦI RO DỰ ÁN VÀ GIẢI PHÁP (RISK MANAGEMENT)
+
+| Rủi ro                     | Mức độ     | Giải pháp                       |
+| -------------------------- | ---------- | ------------------------------- |
+| Spark không đọc được MinIO | Trung bình | Kiểm tra cấu hình S3A connector |
+| Missing values quá nhiều   | Trung bình | Forward Fill                    |
+| DQN khó hội tụ             | Cao        | Ưu tiên prototype trước         |
+| Thiếu thời gian            | Cao        | Chia task theo tuần             |
+| Mô hình ML accuracy thấp   | Trung bình | Tuning hyperparameter           |
+
+---
+
+# 10. SẢN PHẨM DỰ KIẾN (DELIVERABLES)
+
+Sau khi hoàn thành, nhóm cần có:
+
+* Docker Environment
+* MinIO chứa dữ liệu Crypto
+* Notebook ETL
+* Technical Indicators
+* Buy/Sell Classification
+* Confusion Matrix
+* TruncatedSVD
+* t-SNE Visualization
+* DQN Trading Bot
+* README
+* Báo cáo cuối kỳ
+* Slide trình bày
+* Video Demo
+* GitHub Source Code
+
+---
+
+# 11. KẾT LUẬN
+
+Đề tài hướng đến việc xây dựng một hệ thống xử lý dữ liệu Crypto hoàn chỉnh, kết hợp giữa Data Engineering, Machine Learning và Reinforcement Learning nhằm hỗ trợ phân tích dữ liệu giao dịch và tối ưu chiến lược đầu tư. Hệ thống không chỉ đáp ứng mục tiêu học thuật mà còn có tiềm năng mở rộng trong các bài toán tài chính thực tế.

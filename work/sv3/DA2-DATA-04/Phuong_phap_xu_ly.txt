@@ -1,0 +1,10 @@
+PHƯƠNG PHÁP XỬ LÝ
+1. Kiểm tra missing values bằng cách đếm số lượng giá trị null trên từng cột để đánh giá mức độ thiếu dữ liệu.
+
+2. Kiểm tra trùng lặp theo cột timestamp. 
+
+3. Cột timestamp được chuẩn hóa về định dạng datetime và sắp xếp theo thứ tự thời gian tăng dần để đảm bảo đúng cấu trúc dữ liệu chuỗi thời gian.
+
+4. Khoảng trống dữ liệu được phát hiện bằng cách sử dụng hàm lag để so sánh timestamp giữa các bản ghi liên tiếp và tính chênh lệch theo phút. Nếu chênh lệch lớn hơn 1 phút thì được xác định là có gap trong dữ liệu.
+
+5. Hiện tại, các cột và dữ liệu được giữ nguyên trong giai đoạn này. 

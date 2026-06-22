@@ -1,0 +1,11 @@
+Ý nghĩa các chỉ báo kỹ thuật trong đồ án
+
+1. MA (Moving Average – MA10, MA60) là giá trung bình của Bitcoin trong một khoảng thời gian. MA10 là xu hướng ngắn hạn, MA60 xu hướng dài hạn và ổn định hơn, giúp làm mượt biến động giá.
+
+2. ROC (Rate of Change) đo tốc độ thay đổi giá Bitcoin theo thời gian, cho biết mức độ tăng hoặc giảm nhanh của thị trường.
+
+3. Momentum (MOM) thể hiện sự chênh lệch giữa giá hiện tại và giá quá khứ, giúp xác định xu hướng tiếp diễn của giá.
+
+4. RSI (Relative Strength Index) đo mức độ quá mua hoặc quá bán.
+
+5. Stochastic Oscillator so sánh giá đóng cửa với biên độ giá trong một khoảng thời gian, xác định vị trí hiện tại của giá trong vùng dao động.
